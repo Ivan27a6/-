@@ -1,0 +1,19 @@
+all_chars = input()
+len_all_chars = len(all_chars)
+chars_needed = input()
+k_max_len = int(input())
+k_min_len = len(chars_needed)
+chars_needed_set = set(chars_needed)
+f = 0
+for i in range(len_all_chars-k_min_len, -1, -1):
+    if f == 0:
+        for j in range(k_max_len-k_min_len+1):
+            password = all_chars[i:i+k_max_len-j]
+            if set(all_chars[i:i+k_max_len-j]) == chars_needed_set:
+                f = 1
+                print(password)
+                break
+    else:
+        break
+else:
+    print(-1)
